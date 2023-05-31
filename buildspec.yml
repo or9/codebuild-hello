@@ -22,13 +22,13 @@ phases:
       - docker build -t $IMAGE_REPO_NAME:$IMAGE_TAG_VERSION .
 #       - docker tag $IMAGE_REPO_NAME:$IMAGE_TAG_VERSION $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_REPO_NAME:$IMAGE_TAG_VERSION
 #       - docker tag $IMAGE_REPO_NAME:$IMAGE_TAG_VERSION $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_REPO_NAME:latest
-      - docker tag $IMAGE_REPO_NAME:$IMAGE_TAG_VERSION dockerhub.com/xf0x/codebuild-hello:$IMAGE_TAG_VERSION
-      - docker tag $IMAGE_REPO_NAME:$IMAGE_TAG_VERSION dockerhub.com/xf0x/codebuild-hello:latest
+      - docker tag $IMAGE_REPO_NAME:$IMAGE_TAG_VERSION xf0x/codebuild-hello:$IMAGE_TAG_VERSION
+      - docker tag $IMAGE_REPO_NAME:$IMAGE_TAG_VERSION xf0x/codebuild-hello:latest
   post_build:
     commands:
       - echo Build completed on `date`
       - echo Pushing the Docker image…
 #       - docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_REPO_NAME:$IMAGE_TAG_VERSION
 #       - docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_REPO_NAME:latest
-      - docker push dockerhub.com/xf0x/codebuild-hello:$IMAGE_TAG_VERSION
-      - docker push dockerhub.com/xf0x/codebuild-hello:latest
+      - docker push xf0x/codebuild-hello:$IMAGE_TAG_VERSION
+      - docker push xf0x/codebuild-hello:latest
